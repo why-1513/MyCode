@@ -37,7 +37,7 @@ void test01(){
 class Person {
 public:
 	Person() {} 
-		Person(std::string name, int age) {
+	Person(std::string name, int age) {
 		this->m_Name = name;
 		this->m_Age = age;
 	}
