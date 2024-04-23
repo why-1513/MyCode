@@ -10,6 +10,7 @@ public:
 
     //构造函数
     MyArray(int capacity){
+        std::cout << "构造函数" << std::endl;
         this->myCapacity = capacity;
         this->mySize = 0;
         this->pAddress = new T[this->myCapacity];
@@ -17,6 +18,7 @@ public:
 
     //拷贝构造函数
     MyArray(const MyArray& arr){
+        std::cout << "构造函数" << std::endl;
         this->myCapacity = arr.myCapacity;
         this->mySize = arr.mySize;
 
@@ -51,7 +53,8 @@ public:
     //析构函数
     ~MyArray(){
 		if (this->pAddress != NULL)
-		{
+		{   
+            std::cout << "析构函数" << std::endl;
 			delete[] this->pAddress;
 			this->pAddress = NULL;
 			this->myCapacity = 0;
