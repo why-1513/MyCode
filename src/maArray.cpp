@@ -3,6 +3,7 @@
 
 void test01(){
     MyArray<int>array1(10);
+    MyArray array2 = array1;
     std::cout << "test" << std::endl;
 }
 
