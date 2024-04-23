@@ -8,9 +8,9 @@ class MyArray{
 
 public:
 
-    //构造函数
+    //有参构造函数
     MyArray(int capacity){
-        std::cout << "构造函数" << std::endl;
+        //std::cout << "构造函数" << std::endl;
         this->myCapacity = capacity;
         this->mySize = 0;
         this->pAddress = new T[this->myCapacity];
@@ -18,7 +18,7 @@ public:
 
     //拷贝构造函数
     MyArray(const MyArray& arr){
-        std::cout << "构造函数" << std::endl;
+        //std::cout << "构造函数" << std::endl;
         this->myCapacity = arr.myCapacity;
         this->mySize = arr.mySize;
 
@@ -50,11 +50,51 @@ public:
         }      
     }
 
+    //尾插法
+    void push_back(const T & val){
+        //判断容量是否等于大小
+        if(this->myCapacity == this->mySize){
+            return;
+        }
+        //在数组末尾插入数据
+        this->pAddress[this->mySize] = val;
+        //更新数组大小
+        this->mySize++;
+    }
+
+    //尾删法
+    void pop_back(){
+        //让用户访问不到最后一个元素，即为尾删，逻辑删除
+        if(this->mySize == 0){
+            return;
+        }
+        this->mySize--;
+    }
+    
+    //通过下标方式访问数组元素
+    T & operator[] (int index){
+        return this->pAddress[index];
+    }
+
+    const T & operator[] (int index) const {
+        return this->pAddress[index];
+    }
+
+    //返回数组容量
+    int getCapacity() const {
+        return this->myCapacity;
+    }
+
+    //返回数组大小
+    int getSize() const {
+        return this->mySize;
+    }
+
     //析构函数
     ~MyArray(){
 		if (this->pAddress != NULL)
 		{   
-            std::cout << "析构函数" << std::endl;
+            //std::cout << "析构函数" << std::endl;
 			delete[] this->pAddress;
 			this->pAddress = NULL;
 			this->myCapacity = 0;
